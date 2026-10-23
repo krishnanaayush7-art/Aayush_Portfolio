@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aayush | Computer Science Student</title>
+<meta name="description" content="Portfolio of Aayush, a Computer Science student building web apps and learning AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#171338; --surface:#221c52; --ink:#f1edff; --muted:#b4acdc;
+  --accent:#ff7a59; --accent-2:#6fe3d2; --line:#352d70; --on-accent:#1a0f0b;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#f5f2ff; --surface:#ffffff; --ink:#1d1647; --muted:#5b5389; --accent:#d9421c; --accent-2:#0f8f80; --line:#d9d2f5; --on-accent:#ffffff; }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:1.05rem}
+h1,h2,h3,.nav,.btn,.tag{font-family:'Sora',system-ui,sans-serif}
+a{color:var(--accent-2)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 1.5rem}
+
+/* Nav */
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+.logo{font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none}
+.logo span{color:var(--accent)}
+.nav ul{display:flex;gap:1.5rem;list-style:none}
+.nav ul a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem}
+.nav ul a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{padding:6.5rem 0 4.5rem;position:relative}
+.hero::after{content:"";position:absolute;right:1.5rem;top:4rem;width:170px;height:170px;border-radius:50%;
+  background:var(--accent);opacity:.9;box-shadow:-60px 70px 0 -20px var(--accent-2)}
+.hero h1{font-size:clamp(2.6rem,8vw,5rem);line-height:1.05;letter-spacing:-0.03em;font-weight:800;max-width:13ch;position:relative;z-index:1}
+.hero p{max-width:50ch;margin:1.5rem 0 2rem;color:var(--muted);font-size:1.15rem;position:relative;z-index:1}
+.hero .btn{position:relative;z-index:1}
+.btn{display:inline-block;padding:.8rem 1.5rem;border-radius:999px;font-weight:600;text-decoration:none;margin:0 .5rem .5rem 0;transition:transform .15s}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{border:2px solid var(--accent-2);color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+
+/* Sections */
+section{padding:4rem 0}
+section h2{font-size:2rem;margin-bottom:1.5rem;letter-spacing:-0.02em;font-weight:800}
+.about{display:grid;grid-template-columns:2fr 1fr;gap:2.5rem}
+.facts{list-style:none;background:var(--surface);border-radius:14px;padding:1.5rem;align-self:start;border-top:5px solid var(--accent)}
+.facts li{margin-bottom:.9rem}
+.facts li:last-child{margin-bottom:0}
+.facts b{font-family:'Sora',sans-serif;display:block;font-size:.85rem;color:var(--accent-2);font-weight:600}
+
+.skills{display:flex;flex-wrap:wrap;gap:.7rem}
+.tag{padding:.5rem 1.1rem;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;font-weight:600;font-size:.92rem}
+.tag:nth-child(3n+1){border-color:var(--accent)}
+.tag:nth-child(3n+2){border-color:var(--accent-2)}
+
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.card{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column}
+.card:nth-child(2){border-left-color:var(--accent-2)}
+.card h3{font-size:1.2rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.98rem;flex:1}
+.card .stack{margin-top:1rem;font-family:'Sora',sans-serif;font-size:.82rem;color:var(--accent-2);font-weight:600}
+.card a{margin-top:.8rem;font-family:'Sora',sans-serif;font-weight:600;font-size:.92rem}
+
+/* Contact */
+.contact{background:var(--surface);border-radius:18px;padding:3rem 2rem}
+.contact p{max-width:50ch;color:var(--muted);margin-bottom:1.5rem}
+footer{padding:2rem 0;text-align:center;color:var(--muted);font-size:.9rem}
+
+@media (max-width:700px){
+  .about{grid-template-columns:1fr}
+  .nav ul{gap:1rem;font-size:.9rem}
+  .hero{padding:3.5rem 0 2.5rem}
+  .hero::after{width:90px;height:90px;top:1.5rem;box-shadow:-30px 35px 0 -10px var(--accent-2)}
+  .contact{padding:2rem 1.25rem}
+}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .btn{transition:none} }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap nav" aria-label="Main">
+    <a class="logo" href="#top">Aayush<span>.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1>Hi, I'm Aayush. I build things with code.</h1>
+    <p>Computer Science student who enjoys turning ideas into working web apps, and learning how AI tools can speed up that process.</p>
+    <a class="btn primary" href="#projects">See my projects</a>
+    <a class="btn ghost" href="#contact">Get in touch</a>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2>About me</h2>
+        <p>I'm a Computer Science student who likes solving problems step by step. I started with small programs in class and now build full web pages, practise data structures, and explore how AI can help with writing and debugging code.</p>
+        <p style="margin-top:1rem">When I'm not coding, I'm usually reading about new tech or working on side projects with friends. I'm looking for internships where I can learn from a team and ship real features.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Studying</b>B.Tech, Computer Science</li>
+        <li><b>Based in</b>Jaipur, India</li>
+        <li><b>Interested in</b>Web development, AI, open source</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">Java</span>
+        <span class="tag">SQL</span><span class="tag">Git &amp; GitHub</span><span class="tag">VS Code</span>
+        <span class="tag">Data Structures</span><span class="tag">Prompting AI tools</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="card">
+          <h3>Personal Portfolio</h3>
+          <p>This responsive site, written with AI assistance and deployed with GitHub Pages.</p>
+          <div class="stack">HTML, CSS, GitHub Pages</div>
+          <a href="https://github.com/YOUR_USERNAME/my-portfolio">View code</a>
+        </article>
+        <article class="card">
+          <h3>To-Do List App</h3>
+          <p>Add, complete and delete tasks. Saves your list in the browser so it is there next time.</p>
+          <div class="stack">JavaScript, localStorage</div>
+          <a href="https://github.com/YOUR_USERNAME">View code</a>
+        </article>
+        <article class="card">
+          <h3>Student Marks Tracker</h3>
+          <p>A Python program that stores marks, calculates averages and shows each subject's grade.</p>
+          <div class="stack">Python, CSV files</div>
+          <a href="https://github.com/YOUR_USERNAME">View code</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <h2>Contact</h2>
+        <p>I'm open to internships and collaborations. Send me a message and I'll reply as soon as I can.</p>
+        <a class="btn primary" href="mailto:your.email@example.com">Email me</a>
+        <a class="btn ghost" href="https://github.com/YOUR_USERNAME">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/YOUR_USERNAME">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Aayush. Built with HTML, CSS and a little help from AI.</div>
+</footer>
+
+</body>
+</html>
